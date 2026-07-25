@@ -5,52 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kolawole Paul Kayode</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #f8fafc;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      text-align: center;
+      background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0f172a, #1e293b);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      overflow: hidden;
+      font-family: "Poppins", Arial, sans-serif;
     }
-    .card {
-      background: rgba(255,255,255,0.05);
-      padding: 40px 30px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
+    
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 3px;
+      text-align: center;
+      animation: fadeInUp 2s ease, glow 3s ease-in-out infinite alternate;
     }
-    p {
-      font-size: 1.1rem;
-      color: #cbd5e1;
+    
+    /* Fade in + slide up */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .links a {
-      margin: 0 10px;
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: bold;
+    
+    /* Glowing text */
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8;
+      }
+      to {
+        text-shadow: 0 0 25px #60a5fa, 0 0 50px #60a5fa;
+      }
     }
-    .links a:hover {
-      text-decoration: underline;
+    
+    /* Moving background */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Floating particles */
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #38bdf8;
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
+      opacity: 0.6;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-100px) translateX(20px); }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Kolawole Paul Kayode</h1>
-    <p>Welcome to my website</p>
-    <div class="links">
-      <a href="mailto:youremail@example.com">Email</a>
-      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-      <a href="https://github.com" target="_blank">GitHub</a>
-    </div>
-  </div>
+  <h1>Kolawole Paul Kayode</h1>
+  
+  <!-- particles -->
+  <div class="particle" style="top:20%; left:10%; animation-delay:0s;"></div>
+  <div class="particle" style="top:60%; left:80%; animation-delay:1s;"></div>
+  <div class="particle" style="top:30%; left:70%; animation-delay:2s;"></div>
+  <div class="particle" style="top:80%; left:30%; animation-delay:3s;"></div>
 </body>
 </html>
